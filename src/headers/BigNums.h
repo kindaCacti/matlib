@@ -5,10 +5,15 @@
 
 class BigInt{
 public:
-    int digitAt(int);
-    std::string toString();
     BigInt();
     BigInt(long long);
-private:
-    std::vector<char> digits; // digits are kept in reverse order for the ease of doing operations
+
+    void operator+=(BigInt&);
+    BigInt operator+(BigInt&);
+
+    int digitAt(int);
+    std::string toString();
+
+    // digits are kept in such order, that consecutive digits are responsible for 10^0, 10^1, 10^2, ...
+    std::vector<char> digits; 
 };
